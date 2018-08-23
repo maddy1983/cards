@@ -1,0 +1,12 @@
+<div class="col-sm-12 mb-3">
+  <input type="text" [(ngModel)]="rows" placeholder="rows">
+  <input type="text" [(ngModel)]="columns" placeholder="columns">
+  <button type="button" class="btn btn-primary btn-sm" (click)="createCards()">Go</button>
+</div>
+
+<!-- cards -->
+<div class="rows" *ngFor="let i of rowsArr; let idx = index">
+  <div *ngFor="let obj of columnsArr[idx]" class="columns col-sm-{{colWid}}">
+    <app-card (removeCard)="handleRemoveCard($event)" [rowId]="idx" [card]="obj"></app-card>
+  </div>
+</div>

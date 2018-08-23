@@ -1,0 +1,40 @@
+<div class="card mb-3">
+    <div class="card-body">
+        <form [formGroup]="CardForm">
+          <fieldset [disabled]="!allowEdit">
+            <div>
+              <div class="form-group row">
+                  <input type="text" class="form-control" formControlName="name" value="{{card.name}}">
+              </div>
+              <div class="form-group row">
+                  <input type="text" class="form-control" formControlName="email" value="{{card.email}}">
+              </div>
+              <div class="form-group row">
+                  <input type="text" class="form-control" formControlName="address" value="{{card.address}}">
+              </div>
+              <div class="form-group row">
+                  <input type="text" class="form-control" formControlName="designation" value="{{card.designation}}">
+              </div>
+              <div class="form-group row">
+                  <input type="text" class="form-control" formControlName="phone" value="{{card.phone}}">
+              </div>
+          </div>
+        </fieldset>
+
+          <div>
+              <button type="button" class="btn btn-primary btn-sm mr-2 mb-2" [hidden]="allowEdit" (click)="onEdit()">Edit</button>
+              <!-- Delete -->
+              <button type="button" class="btn btn-danger btn-sm mb-2"
+               (click)="onDelete()" [hidden]="allowEdit">
+              Delete</button>
+              <!-- save -->
+              <button type="button" class="btn btn-success btn-sm mr-2 mb-2"
+               (click)="onSave(f)" [hidden]="!allowEdit">Save</button>
+              <!-- cancel -->
+              <button type="button" class="btn btn-primary btn-sm mr-2 mb-2"
+                (click)="onCancel()" [hidden]="!allowEdit">
+              Cancel</button>
+          </div>
+      </form>
+    </div>
+  </div>
